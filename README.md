@@ -24,6 +24,51 @@ KADENCE/
 | --- | --- | --- |
 | `resume-agent` | Spec | Generate tailored ATS-friendly Markdown resumes with mandatory review and audit logging |
 
+## Resume Agent Flow
+
+```text
+  Applicant Profile JSON              Job Advert URL
+          |                                  |
+          v                                  v
+  +------------------+              +------------------+
+  | Validate Profile |              | Fetch Job Advert |
+  +------------------+              +------------------+
+          |                                  |
+          |                         if fetch fails
+          |                                  v
+          |                       Fallback Job Text
+          |                                  |
+          +---------------+------------------+
+                          |
+                          v
+                +--------------------+
+                | Normalize Job Data |
+                +--------------------+
+                          |
+                          v
+                +--------------------+
+                | Draft Resume Claims|
+                +--------------------+
+                          |
+                          v
+                +--------------------+
+                | Mandatory Review  |
+                | Human / Agent /   |
+                | Event Response    |
+                +--------------------+
+                          |
+                 approved or edited
+                          |
+                          v
+                +--------------------+
+                | Render Markdown   |
+                | Resume Artifact   |
+                +--------------------+
+                          |
+                          v
+              resume.md + append-only audit log
+```
+
 ## Design Principles
 
 1. Agent-first interfaces before UI.
@@ -46,4 +91,3 @@ KADENCE/
 ## First Implementation Target
 
 See [agents/resume-agent/SPEC.md](agents/resume-agent/SPEC.md).
-

@@ -12,8 +12,10 @@ dist/
 build/
 *.egg-info/
 
+# Local credential scratch files.
+*token*.txt
+
 # Generated agent runs may contain PII or private job/application data.
 runs/
 harness/reports/*
 !harness/reports/.gitignore
-
