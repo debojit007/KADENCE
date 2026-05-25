@@ -1,0 +1,49 @@
+# KADENCE
+
+KADENCE is a monorepo for agent-first AI systems. Each agent is a self-contained workflow with typed inputs, auditable outputs, CLI access, and a future-ready API boundary.
+
+The first agent in this repo is `resume-agent`, a workflow for generating tailored Markdown resumes from structured applicant data and a job advert URL or fallback job description text.
+
+## Repository Model
+
+KADENCE is organized around reusable agent infrastructure and independently testable agent modules.
+
+```text
+KADENCE/
+  agents/       Agent implementations and agent-specific specs
+  packages/     Shared libraries for core agent behavior and harness tooling
+  skills/       Reusable agent instructions and operating patterns
+  harness/      Fixtures, replay cases, validation, and eval scenarios
+  apps/         Future product/API surfaces
+  docs/         Architecture, contracts, and decisions
+```
+
+## Current Agents
+
+| Agent | Status | Purpose |
+| --- | --- | --- |
+| `resume-agent` | Spec | Generate tailored ATS-friendly Markdown resumes with mandatory review and audit logging |
+
+## Design Principles
+
+1. Agent-first interfaces before UI.
+2. Typed JSON contracts for inputs, intermediate artifacts, and outputs.
+3. Required audit trails for every consequential workflow step.
+4. Human or agent review before final artifacts are produced.
+5. Minimal dependencies until complexity justifies additional framework weight.
+6. Shared infrastructure belongs in `packages/`; agent-specific behavior belongs in `agents/`.
+
+## Recommended Stack
+
+- Python 3.12+
+- `uv` workspace
+- Pydantic for schemas and validation
+- Typer for CLI entrypoints
+- OpenAI as the default configurable LLM provider
+- FastAPI later as an API wrapper around the core workflow
+- Append-only JSONL event logs for audit
+
+## First Implementation Target
+
+See [agents/resume-agent/SPEC.md](agents/resume-agent/SPEC.md).
+

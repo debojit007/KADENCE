@@ -1,0 +1,10 @@
+[project]
+name = "kadence-resume-agent"
+version = "0.1.0"
+description = "KADENCE resume tailoring agent."
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+kadence-resume = "kadence_resume_agent.cli:app"
+

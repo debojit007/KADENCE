@@ -1,0 +1,20 @@
+{
+  "repo": "KADENCE",
+  "agents": [
+    {
+      "id": "resume-agent",
+      "name": "Resume Agent",
+      "status": "spec",
+      "entrypoint": "kadence-resume",
+      "spec": "agents/resume-agent/SPEC.md",
+      "capabilities": [
+        "job_advert_ingestion",
+        "resume_tailoring",
+        "claim_review",
+        "markdown_resume_rendering",
+        "audit_logging"
+      ]
+    }
+  ]
+}
+

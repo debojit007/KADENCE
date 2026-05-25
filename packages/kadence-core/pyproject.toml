@@ -1,0 +1,7 @@
+[project]
+name = "kadence-core"
+version = "0.1.0"
+description = "Shared primitives for KADENCE agents."
+requires-python = ">=3.12"
+dependencies = []
+

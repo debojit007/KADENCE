@@ -1,0 +1,7 @@
+[project]
+name = "kadence-harness"
+version = "0.1.0"
+description = "Harness tooling for KADENCE agents."
+requires-python = ">=3.12"
+dependencies = []
+
