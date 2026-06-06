@@ -76,6 +76,10 @@ Markdown is preferred because it is token-efficient, diffable, agent-friendly, e
 
 The LLM should generate structured intermediate artifacts. The final Markdown should be rendered from approved structured data.
 
+By default, the final resume is a **strict two-page artifact**. It must not be delivered if it prints to 3+ pages. When PDF/print tooling is available, the render flow must verify the resume prints as exactly 2 pages. When tooling is unavailable, the agent must apply a conservative Markdown budget, typically 800-900 words and 50-65 lines, and mark the page count as requiring human print confirmation.
+
+The final resume must pass a duplication check. Repeated claims, metrics, project themes, and generic skills sections must be merged or removed. Standalone `Core Strengths` sections should be omitted by default and role-critical keywords should be merged into the summary, experience bullets, and technical environment.
+
 ## Grounding and Claim Policy
 
 The agent may infer, rephrase, and generalize to match the job advert. However, every strong claim must be grounded in applicant data or explicitly flagged for review.
@@ -115,9 +119,10 @@ The draft phase must produce:
 ```text
 claims_review.json
 resume_draft.json
+final_quality_review.json
 ```
 
-The render phase must require an approved or edited review decision.
+The render phase must require an approved or edited review decision and an approved final quality review covering page count, duplicate content, and rejected/inferred claims.
 
 ## Workflow States
 
@@ -145,6 +150,7 @@ runs/{run_id}/
   drafts/
     resume_draft.json
     claims_review.json
+    final_quality_review.json
   final/
     resume.md
 ```
@@ -246,4 +252,3 @@ Initial harness cases should include:
 4. Database-backed persistence.
 5. Multi-agent orchestration framework.
 6. Automatic application submission.
-

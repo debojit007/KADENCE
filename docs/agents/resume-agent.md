@@ -6,5 +6,6 @@ It generates tailored ATS-friendly Markdown resumes from structured applicant da
 
 The workflow must always include a review step before producing the final resume.
 
-See [../../agents/resume-agent/SPEC.md](../../agents/resume-agent/SPEC.md).
+Final resumes must also pass a quality gate: exactly 2 printed pages by default, no repeated claims/metrics/themes, and no standalone generic skills section unless explicitly approved.
 
+See [../../agents/resume-agent/SPEC.md](../../agents/resume-agent/SPEC.md).

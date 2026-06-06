@@ -1,0 +1,9 @@
+[project]
+name = "kadence-resume-styler-agent"
+version = "0.1.0"
+description = "KADENCE resume Markdown-to-HTML styling agent."
+requires-python = ">=3.12"
+dependencies = []
+
+[project.scripts]
+kadence-resume-style = "resume_styler_agent.cli:main"

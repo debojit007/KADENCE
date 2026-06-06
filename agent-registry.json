@@ -11,10 +11,43 @@
         "job_advert_ingestion",
         "resume_tailoring",
         "claim_review",
+        "final_quality_gate",
+        "two_page_resume_rendering",
+        "duplication_check",
         "markdown_resume_rendering",
         "audit_logging"
+      ]
+    },
+    {
+      "id": "resume-styler-agent",
+      "name": "Resume Styler Agent",
+      "status": "local-renderer",
+      "entrypoint": "kadence-resume-style",
+      "spec": "agents/resume-styler-agent/SPEC.md",
+      "capabilities": [
+        "markdown_resume_ingestion",
+        "html_resume_rendering",
+        "two_column_resume_layout",
+        "technical_skills_left_rail",
+        "print_css",
+        "local_only_rendering"
+      ]
+    },
+    {
+      "id": "resume-reviewer-agent",
+      "name": "Resume Reviewer Agent",
+      "status": "local-reviewer",
+      "entrypoint": "kadence-resume-review",
+      "spec": "agents/resume-reviewer-agent/SPEC.md",
+      "capabilities": [
+        "final_artifact_review",
+        "diagnostic_leak_detection",
+        "length_check",
+        "duplication_check",
+        "remote_asset_check",
+        "section_name_check",
+        "markdown_html_consistency_check"
       ]
     }
   ]
 }
-

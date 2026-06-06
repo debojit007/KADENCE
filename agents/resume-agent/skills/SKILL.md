@@ -11,4 +11,4 @@ Use this skill when the task is to generate or review a tailored resume from str
 5. Always stop for review before final rendering.
 6. Render final Markdown only from approved or edited claims.
 7. Record all consequential actions in the audit log.
-
+8. Before final delivery and after every final save/render/update, apply `final-resume-quality.md`: final resumes must target exactly 2 printed pages, stay at or under 600 words when print rendering is unavailable, remove duplicated claims/metrics/themes, and merge generic skills content inline instead of using a standalone Core Strengths section unless explicitly approved.
