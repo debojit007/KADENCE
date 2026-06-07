@@ -1,0 +1,15 @@
+#!/bin/sh
+# KADENCE agentic pre-commit hook.
+# Keeps README.md synchronized with local agent metadata before each commit.
+
+set -eu
+
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+cd "$REPO_ROOT"
+
+python3 scripts/update_readme.py
+
+if ! git diff --quiet -- README.md; then
+  git add README.md
+  echo "agentic hook: staged updated README.md"
+fi

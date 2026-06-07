@@ -18,11 +18,21 @@ KADENCE/
   docs/         Architecture, contracts, and decisions
 ```
 
+<!-- agentic-readme:start -->
 ## Current Agents
+
+This section is maintained by the local agentic pre-commit hook from `agent-registry.json`.
 
 | Agent | Status | Purpose |
 | --- | --- | --- |
 | `resume-agent` | Spec | Generate tailored ATS-friendly Markdown resumes with mandatory review and audit logging |
+| `resume-styler-agent` | Local deterministic renderer | Convert approved Markdown resumes into compact local-only print-ready HTML |
+| `resume-reviewer-agent` | Local deterministic reviewer | Run deterministic final-artifact checks for Markdown and HTML resumes |
+
+## Agentic Commit Hook
+
+KADENCE includes a local pre-commit hook that runs `scripts/update_readme.py` before each commit. The hook refreshes this README from local repository metadata and stages `README.md` when it changes, so commits include the latest project overview.
+<!-- agentic-readme:end -->
 
 ## Resume Agent Flow
 
